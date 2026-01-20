@@ -12,6 +12,23 @@ The database is not exposed to the public internet and can only be reached throu
 - Use Azure Private DNS for internal name resolution
 - Secure administrative access using Azure Bastion
 
+## Architecture Overview
+
+The architecture consists of two main layers:
+
+- **Web Layer**
+  - Azure Web App (Linux, PHP)
+  - Integrated with an Azure Virtual Network using VNet Integration
+  - Uses Private DNS to resolve internal resources
+
+- **Database Layer**
+  - MySQL hosted on a Linux virtual machine
+  - No public IP address assigned
+  - Accessible only from the Web App subnet through Network Security Groups
+
+Administrative access to the virtual machine is performed exclusively via Azure Bastion.
+
+
 ## Technologies Used
 
 - Azure App Service (Web App)
