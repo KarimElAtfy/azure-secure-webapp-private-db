@@ -40,6 +40,20 @@ Administrative access to the virtual machine is performed exclusively via Azure 
 - Azure Bastion
 - Network Security Groups (NSG)
 
+## Security Considerations
+
+This project was designed with security as a primary concern.
+
+- The database virtual machine does not have a public IP address.
+- Database access is restricted at the network level using Network Security Groups (NSGs).
+- The Web App accesses the database exclusively through Azure Virtual Network Integration.
+- Internal name resolution is handled using Azure Private DNS, avoiding hard-coded IP addresses.
+- Administrative access to the virtual machine is performed using Azure Bastion, eliminating the need for exposed SSH ports.
+- No inbound access to the database is allowed from the public internet.
+
+
 ## Project Status
 
 Completed – functional end-to-end private connectivity between Web App and database.
+
+
